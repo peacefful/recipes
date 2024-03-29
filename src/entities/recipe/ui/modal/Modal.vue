@@ -1,9 +1,7 @@
 <template>
   <VaModal
     v-model="showModal"
-    ok-text="Сохранить"
-    cancel-text="Закрыть"
-    @ok="recipeStore.saveCurentRecipe(recipe.id)"
+    @ok="$emit('recipe-action', recipe.id)"
     blur
   >
     <div class="flex justify-center items-center mt-2">
@@ -34,7 +32,6 @@
 
 <script setup lang="ts">
 import { type TRecipe } from "@/shared/types";
-import { useRecipeStore } from "@/entities/recipe";
 
 type TModalRecipe = {
   recipe: TRecipe;
@@ -42,7 +39,7 @@ type TModalRecipe = {
 
 defineProps<TModalRecipe>();
 
-const showModal = defineModel<boolean>("showModal");
+defineEmits(['recipe-action'])
 
-const recipeStore = useRecipeStore();
+const showModal = defineModel<boolean>("showModal");
 </script>

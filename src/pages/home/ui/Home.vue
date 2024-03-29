@@ -14,8 +14,9 @@
       />
     </div>
     <Modal
-      :hide-default-actions="checkRecipeInFavorite(recipeStore.recipe.id)"
-      :close-button="checkRecipeInFavorite(recipeStore.recipe.id)"
+      ok-text="Сохранить"
+      cancel-text="Закрыть"
+      @recipe-action="recipeStore.saveCurentRecipe"
       :recipe="recipeStore.recipe"
       v-model="showModal"
     />
@@ -27,12 +28,7 @@ import { Input } from "@/features/home";
 import { RecipeList } from "@/widgest/recipe-list";
 import { useDebounce } from "@/shared/lib";
 import { ref, watch } from "vue";
-import {
-  useRecipeStore,
-  Modal,
-  checkRecipeInFavorite,
-  selectRecipe,
-} from "@/entities/recipe";
+import { useRecipeStore, Modal, selectRecipe } from "@/entities/recipe";
 
 const searchValue = ref<string>("");
 const debouncedValue = useDebounce(searchValue, 500);

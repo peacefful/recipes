@@ -40,5 +40,8 @@ export const useRecipeStore = defineStore("recipeStore", {
         });
       }
     },
+    deleleFavoriteRecipe(recipeId: string) {
+      localStorage.removeItem(`${recipeId}`);
+    },
   },
 });

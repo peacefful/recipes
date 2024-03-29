@@ -1,16 +1,17 @@
 <template>
   <main>
     <div class="mt-5 flex flex-wrap gap-4 justify-center">
-      <RecipeList 
-        :recipes="recipeStore.favoriteRecipes" 
-        @select-recipe="selectRecipeById" 
+      <RecipeList
+        :recipes="recipeStore.favoriteRecipes"
+        @select-recipe="selectRecipeById"
       />
     </div>
     <Modal
-      :close-button="true"
-      :hide-default-actions="true"
+      ok-text="Удалить"
+      cancel-text="Закрыть"
+      v-model="showModal"
+      @recipe-action="recipeStore.deleleFavoriteRecipe"
       :recipe="recipeStore.recipe"
-      v-model="showModal" 
     />
   </main>
 </template>
@@ -23,5 +24,5 @@ import { Modal } from "@/entities/recipe";
 const recipeStore = useRecipeStore();
 recipeStore.getFavoriteRecipes();
 
-const { selectRecipeById, showModal } = selectRecipe()
+const { selectRecipeById, showModal } = selectRecipe();
 </script>
