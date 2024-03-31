@@ -21,11 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  useRecipeStore,
-  selectRecipe,
-  checkRecipeInFavorite,
-} from "@/entities/recipe";
+import { useRecipeStore, selectRecipe } from "@/entities/recipe";
 import { RecipeList } from "@/widgest/recipe-list";
 import { Modal } from "@/entities/recipe";
 import { computed } from "vue";

@@ -7,7 +7,6 @@
         placeholder="Введите название"
       />
     </div>
-    {{ showModal }}
     <div class="mt-5 flex flex-wrap gap-4 justify-center">
       <RecipeList
         :recipes="recipeStore.recipes"
@@ -29,12 +28,7 @@ import { Input } from "@/features/home";
 import { RecipeList } from "@/widgest/recipe-list";
 import { useDebounce } from "@/shared/lib";
 import { ref, watch } from "vue";
-import {
-  useRecipeStore,
-  Modal,
-  selectRecipe,
-  checkRecipeInFavorite,
-} from "@/entities/recipe";
+import { useRecipeStore, Modal, selectRecipe } from "@/entities/recipe";
 
 const searchValue = ref<string>("");
 const debouncedValue = useDebounce(searchValue, 500);
