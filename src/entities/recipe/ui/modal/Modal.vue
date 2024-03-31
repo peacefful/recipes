@@ -27,19 +27,27 @@
     <p class="text-justify">
       {{ recipe.manual }}
     </p>
+    <!-- <template #footer>
+      <div class="flex gap-2">
+        <VaButton @click="showModal = false"> Закрыть </VaButton>
+        <VaButton @click="$emit('recipe-action', recipe.id)">
+          Сохранить
+        </VaButton>
+      </div>
+    </template> -->
   </VaModal>
 </template>
 
 <script setup lang="ts">
 import { type TRecipe } from "@/shared/types";
+import { checkRecipeInFavorite } from "@/entities/recipe";
 
 type TModalRecipe = {
   recipe: TRecipe;
 };
 
 defineProps<TModalRecipe>();
-
-defineEmits(['recipe-action'])
+defineEmits(["recipe-action"]);
 
 const showModal = defineModel<boolean>("showModal");
 </script>
