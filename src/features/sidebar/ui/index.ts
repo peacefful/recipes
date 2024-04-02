@@ -1,1 +1,1 @@
-export { default as Item } from "./Item.vue"
+export { default as Item } from "./NavigationButton.vue"

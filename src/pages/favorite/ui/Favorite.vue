@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { useRecipeStore, selectRecipe } from "@/entities/recipe";
-import { RecipeList } from "@/widgest/recipe-list";
+import { RecipeList } from "@/widgets/recipe-list";
 import { Modal } from "@/entities/recipe";
 import { computed } from "vue";
 

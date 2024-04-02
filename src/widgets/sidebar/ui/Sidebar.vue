@@ -1,7 +1,7 @@
 <template>
   <VaSidebar 
     class="h-screen" 
-    color="costum" 
+    color="custom" 
     v-model="showSidebar"
   >
     <VaSidebarItem 

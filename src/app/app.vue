@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 import { ref, provide } from "vue";
-import { Navigation } from "@/widgest/navigation";
-import { Sidebar } from "@/widgest/sidebar";
+import { Navigation } from "@/widgets/navigation";
+import { Sidebar } from "@/widgets/sidebar";
 
 const showSidebar = ref<boolean>(false);
 

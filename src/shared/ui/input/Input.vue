@@ -1,18 +1,13 @@
 <template>
   <VaInput
     class="h-10 text-md"
-    :color="color || 'primary'"
+    :color="color"
     v-model="value"
     :placeholder="placeholder"
     strict-bind-input-value
   >
     <template #prepend>
-      <VaIcon 
-        name="search" 
-        :size="23" 
-        class="mr-2" 
-        color="secondary" 
-      />
+      <slot />
     </template>
   </VaInput>
 </template>
@@ -21,8 +16,8 @@
 import { ref, computed } from "vue";
 
 type TInput = {
+  color: string;
   placeholder: string;
-  color?: string;
 };
 
 defineProps<TInput>();

@@ -1,7 +1,7 @@
 export const config = {
   colors: {
     variables: {
-      costum: "#fff",
+      custom: "#fff",
     },
   },
 };

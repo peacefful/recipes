@@ -1,11 +1,9 @@
 <template>
   <main>
     <div class="text-center">
-      <Input
-        color="info"
-        v-model="searchValue"
-        placeholder="Введите название"
-      />
+      <Input color="info" v-model="searchValue" placeholder="Введите название">
+        <VaIcon name="search" :size="23" class="mr-2" color="secondary" />
+      </Input>
     </div>
     <div class="mt-5 flex flex-wrap gap-4 justify-center">
       <RecipeList
@@ -24,11 +22,11 @@
 </template>
 
 <script setup lang="ts">
-import { Input } from "@/features/home";
-import { RecipeList } from "@/widgest/recipe-list";
-import { useDebounce } from "@/shared/lib";
-import { ref, watch } from "vue";
 import { useRecipeStore, Modal, selectRecipe } from "@/entities/recipe";
+import { RecipeList } from "@/widgets/recipe-list";
+import { useDebounce } from "@/shared/lib";
+import { Input } from "@/shared/ui/input";
+import { ref, watch } from "vue";
 
 const searchValue = ref<string>("");
 const debouncedValue = useDebounce(searchValue, 500);
