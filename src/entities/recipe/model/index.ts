@@ -12,15 +12,14 @@ export const useRecipeStore = defineStore("recipeStore", {
   },
   actions: {
     getSearchResultRecipes(value: string) {
-      if (value.trim()) {
-        ApiRecipe.fetchRecipes().then((res) => {
-          const filteringRecipes = res.filter((recipe) => {
-            return searchRecipe({ value, recipe });
-          });
-
-          this.recipes = filteringRecipes;
+      ApiRecipe.fetchRecipes().then((res) => {
+        const filteringRecipes = res.filter((recipe) => {
+          return searchRecipe({ value, recipe });
         });
-      }
+
+        this.recipes = filteringRecipes;
+      });
+      
       this.recipes = [] as TRecipe[];
     },
     getCurrentRecipe(id: string) {

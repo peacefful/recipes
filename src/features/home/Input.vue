@@ -1,5 +1,5 @@
 <template>
-  <Input color="info" v-model="searchValue" placeholder="Введите название">
+  <Input color="info" v-model.trim="searchValue" placeholder="Введите название">
     <VaIcon name="search" :size="23" class="mr-2" color="secondary" />
   </Input>
 </template>
