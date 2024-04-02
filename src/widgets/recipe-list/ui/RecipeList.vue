@@ -1,16 +1,16 @@
 <template>
   <div v-for="recipe in recipes" :key="recipe.id">
     <Card class="mt-1" :image="recipe.image" :title="recipe.title">
-      <Button theme="info" @click="$emit('select-recipe', recipe.id)">
+      <OpenCardButton @click="$emit('select-recipe', recipe.id)">
         Открыть
-      </Button>
+      </OpenCardButton>
     </Card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Card } from "@/entities/recipe";
-import { Button } from "@/shared/ui/button";
+import { OpenCardButton } from "@/features/recipe";
 import { type TRecipe } from "@/shared/types";
 
 interface TRecipeList {
