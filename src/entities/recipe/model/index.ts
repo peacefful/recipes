@@ -14,9 +14,11 @@ export const useRecipeStore = defineStore("recipeStore", {
     getSearchResultRecipes(value: string) {
       if (value.trim()) {
         ApiRecipe.fetchRecipes().then((res) => {
-          this.recipes = res.filter((recipe) => {
+          const filteringRecipes = res.filter((recipe) => {
             return searchRecipe({ value, recipe });
           });
+
+          this.recipes = filteringRecipes;
         });
       }
       this.recipes = [] as TRecipe[];
